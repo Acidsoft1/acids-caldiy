@@ -119,16 +119,20 @@
 }
 
 /* ---------- 3. Компоненти публічних сторінок ---------- */
-.acid-theme main,
-.acid-theme [data-testid="booker-container"] {
+.acid-theme main {
   background-color: var(--acid-bg);
 }
 
-/* Картка букера та сторінки успіху — «скляна» поверхня зі світінням, як картки на acidsoft.io */
-.acid-theme [data-testid="booker-container"] > div,
+/* Картка букера та сторінки успіху — «скляна» поверхня зі світінням, як картки на acidsoft.io.
+   Колір і світіння — на всьому контейнері; колонки всередині прозорі, щоб поверхня була суцільною. */
+.acid-theme [data-testid="booker-container"],
 .acid-theme [data-testid="success-page"] .main {
   background-color: var(--acid-bg-card);
   box-shadow: var(--acid-glow-card);
+}
+.acid-theme [data-testid="booker-container"] > div,
+.acid-theme [data-testid="booker-container"] > div > div {
+  background-color: transparent;
 }
 
 .acid-theme h1,
