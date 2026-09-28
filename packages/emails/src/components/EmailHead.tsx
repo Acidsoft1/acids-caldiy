@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-head-element */
+import { WEBAPP_URL } from "@calcom/lib/constants";
+
 import RawHtml from "./RawHtml";
+import { EMAIL_BRAND } from "./acidsoftEmailTheme";
 
 const EmailHead = ({ title = "" }) => {
   return (
@@ -49,9 +52,14 @@ const EmailHead = ({ title = "" }) => {
       <RawHtml
         html={`<!--[if lte mso 11]><style type="text/css">.mj-outlook-group-fix { width:100% !important; }</style><![endif]-->`}
       />
+      {/* AcidSoft: self-hosted Inter замість Google Fonts (Roboto); клієнти без веб-шрифтів беруть Arial/Helvetica */}
       <RawHtml
-        html={`<!--[if !mso]><!--><link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css"/>
-      <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);</style><!--<![endif]-->`}
+        html={`<!--[if !mso]><!--><style type="text/css">${EMAIL_BRAND.fonts
+          .map(
+            (f) =>
+              `@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;src:url(${WEBAPP_URL}${f}) format('woff2');}`
+          )
+          .join("")}</style><!--<![endif]-->`}
       />
       <style type="text/css">
         {`

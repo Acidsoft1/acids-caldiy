@@ -1,5 +1,6 @@
 import { getBookingUrl, getCancelLink, getRescheduleLink } from "@calcom/lib/CalEventParser";
 import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+import { EMAIL_BRAND } from "./acidsoftEmailTheme";
 
 export function ManageLink(props: { calEvent: CalendarEvent; attendee: Person }) {
   // Only the original attendee can make changes to the event
@@ -46,7 +47,7 @@ export function ManageLink(props: { calEvent: CalendarEvent; attendee: Person })
     return (
       <div
         style={{
-          fontFamily: "Roboto, Helvetica, sans-serif",
+          fontFamily: EMAIL_BRAND.fontStack,
           fontSize: "16px",
           fontWeight: 500,
           lineHeight: "0px",

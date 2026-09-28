@@ -1,4 +1,5 @@
 import { CallToActionIcon } from "./CallToActionIcon";
+import { EMAIL_BRAND } from "./acidsoftEmailTheme";
 
 export const CallToAction = (props: {
   label: string;
@@ -31,10 +32,10 @@ export const CallToAction = (props: {
     <p
       style={{
         display: "inline-block",
-        background: secondary ? "#FFFFFF" : "#292929",
+        background: secondary ? "#FFFFFF" : EMAIL_BRAND.accent,
         border: secondary ? "1px solid #d1d5db" : "",
         color: "#ffffff",
-        fontFamily: "Roboto, Helvetica, sans-serif",
+        fontFamily: EMAIL_BRAND.fontStack,
         fontSize: "0.875rem",
         fontWeight: 500,
         lineHeight: "1rem",
