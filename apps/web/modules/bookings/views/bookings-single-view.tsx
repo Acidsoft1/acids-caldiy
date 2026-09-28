@@ -1034,7 +1034,9 @@ export default function Success(props: PageProps) {
                       </>
                     )}
 
-                    {session === null && !(userIsOwner || props.hideBranding) && (
+                    {session === null &&
+                      !(userIsOwner || props.hideBranding) &&
+                      process.env.NEXT_PUBLIC_DISABLE_SIGNUP !== "true" && (
                       <>
                         <hr className="border-subtle mt-8" />
                         <div className="text-default pt-8 text-center text-xs">
